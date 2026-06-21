@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+    <title>足球竞猜 · 产品说明 | china-guessscore.com</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: #f4f9fc;
+            color: #1a2e3b;
+            line-height: 1.6;
+            padding: 24px 16px;
+        }
+
+        .wrap {
+            max-width: 880px;
+            margin: 0 auto;
+        }
+
+        /* 网格卡片系统 */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 32px 0 28px;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 24px 20px 22px;
+            box-shadow: 0 6px 16px rgba(20, 80, 90, 0.06);
+            border: 1px solid #d6eaef;
+            transition: box-shadow 0.2s, border 0.2s;
+        }
+
+        .card:hover {
+            border-color: #27a0b0;
+            box-shadow: 0 10px 24px rgba(30, 140, 160, 0.10);
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            margin-bottom: 10px;
+            color: #006b7a;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .card h3::before {
+            content: "";
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: #2ab0c0;
+            border-radius: 4px;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: #23515e;
+        }
+
+        .card ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 8px;
+        }
+
+        .card ul li {
+            font-size: 0.9rem;
+            padding: 4px 0 4px 20px;
+            position: relative;
+            color: #1e4753;
+        }
+
+        .card ul li::before {
+            content: "•";
+            color: #2a9dae;
+            font-weight: 700;
+            position: absolute;
+            left: 4px;
+        }
+
+        /* hero 模块 */
+        .hero {
+            margin: 16px 0 24px;
+            padding: 20px 0 12px;
+            border-bottom: 2px solid #c4e2e9;
+        }
+
+        .hero h1 {
+            font-size: 2.1rem;
+            font-weight: 600;
+            letter-spacing: -0.03em;
+            line-height: 1.2;
+            color: #014953;
+            margin-bottom: 12px;
+        }
+
+        .hero .lead {
+            font-size: 1.05rem;
+            max-width: 640px;
+            color: #266370;
+            background: #e3f3f7;
+            padding: 14px 18px;
+            border-radius: 28px;
+            display: inline-block;
+            margin-bottom: 8px;
+        }
+
+        .stat-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px 36px;
+            margin: 26px 0 8px;
+            color: #17515e;
+            font-size: 0.9rem;
+        }
+
+        .stat-bar span {
+            background: #dbeef2;
+            padding: 6px 14px;
+            border-radius: 30px;
+            font-weight: 500;
+        }
+
+        /* 使用场景 + 提示 */
+        .scenario {
+            background: #e8f2f5;
+            border-radius: 32px;
+            padding: 22px 24px;
+            margin: 28px 0 32px;
+        }
+
+        .scenario h2 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #045663;
+            margin-bottom: 10px;
+        }
+
+        .scenario-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px 30px;
+        }
+
+        .scenario-item {
+            flex: 1 1 180px;
+            background: white;
+            border-radius: 30px;
+            padding: 14px 18px;
+            box-shadow: 0 2px 6px rgba(0,70,80,0.04);
+        }
+
+        .scenario-item strong {
+            color: #007886;
+        }
+
+        .faq-mini {
+            background: white;
+            border-radius: 28px;
+            padding: 20px 22px;
+            margin: 32px 0 28px;
+            border-left: 4px solid #2aadbc;
+        }
+
+        .faq-mini h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #006573;
+            margin-bottom: 14px;
+        }
+
+        .faq-mini q {
+            display: block;
+            font-style: italic;
+            border-bottom: 1px dashed #bcd9df;
+            padding: 10px 0;
+            color: #1d4b56;
+        }
+
+        .faq-mini q:last-of-type {
+            border-bottom: none;
+        }
+
+        .faq-mini q::before {
+            content: "▸ ";
+            color: #1f9aab;
+            font-weight: 600;
+        }
+
+        .cta-soft {
+            margin: 30px 0 24px;
+            padding: 18px 24px;
+            background: transparent;
+            border-radius: 60px;
+            text-align: center;
+        }
+
+        .cta-soft p {
+            font-size: 1.05rem;
+            background: #cfe7ed;
+            display: inline-block;
+            padding: 10px 28px;
+            border-radius: 60px;
+            color: #02424f;
+            font-weight: 500;
+        }
+
+        .cta-soft a {
+            color: #0c7585;
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 1px solid #48aeba;
+            transition: border 0.15s;
+        }
+
+        .cta-soft a:hover {
+            border-bottom-width: 2px;
+            color: #005d6b;
+        }
+
+        .footer-note {
+            margin-top: 40px;
+            padding-top: 16px;
+            border-top: 1px solid #c0dbdf;
+            font-size: 0.8rem;
+            color: #3b6d79;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        /* 移动端微调 */
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            .scenario-grid {
+                flex-direction: column;
+            }
+            .stat-bar {
+                gap: 12px;
+            }
+        }
+
+        @media (min-width: 700px) {
+            body {
+                padding: 36px 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+
+    <!-- hero 摘要 -->
+    <div class="hero">
+        <h1>足球竞猜 · 持续关注</h1>
+        <div class="lead">面向再次访问与收藏用户的产品说明 · 简洁专业</div>
+        <div class="stat-bar">
+            <span>⚡ 赛事覆盖 30+ 联赛</span>
+            <span>📊 每日更新参考</span>
+            <span>🔖 收藏即回归</span>
+        </div>
+    </div>
+
+    <!-- 亮点网格卡片 -->
+    <div class="grid">
+        <div class="card">
+            <h3>赛事透视</h3>
+            <p>基于公开数据整合的竞猜参考，覆盖五大联赛及重点杯赛。信息密度适中，便于快速浏览。</p>
+        </div>
+        <div class="card">
+            <h3>再次访问</h3>
+            <p>无论上次查看是何时，页面结构保持一致。适合收藏后回归，无需重新适应。</p>
+        </div>
+        <div class="card">
+            <h3>克制展示</h3>
+            <p>不渲染焦虑，不强调“必中”。只呈现经过筛选的赛前背景、对阵走势与基础统计。</p>
+        </div>
+        <div class="card">
+            <h3>关注节奏</h3>
+            <ul>
+                <li>按轮次/日期归档</li>
+                <li>关键球员伤停提示</li>
+                <li>历史交锋简明</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 使用建议 场景 -->
+    <div class="scenario">
+        <h2>使用建议 · 从收藏到习惯</h2>
+        <div class="scenario-grid">
+            <div class="scenario-item">
+                <strong>赛前 2 小时</strong><br>
+                快速过一遍阵容与近况。<br>
+                <span style="font-size:0.85rem; color:#2f7683;">适合移动端核对</span>
+            </div>
+            <div class="scenario-item">
+                <strong>每日固定时刻</strong><br>
+                同一 URL 打开，信息结构稳定。<br>
+                <span style="font-size:0.85rem; color:#2f7683;">减少认知负担</span>
+            </div>
+            <div class="scenario-item">
+                <strong>赛后回顾</strong><br>
+                对比预期与实际赛果，累积直觉。<br>
+                <span style="font-size:0.85rem; color:#2f7683;">不构成投注建议</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ 摘要 / 可信说明 -->
+    <div class="faq-mini">
+        <h4>简要说明 · 常见关注点</h4>
+        <q>数据来源是什么？主要依托公开赛事统计与积分榜，不包含内部消息。</q>
+        <q>页面会频繁改版吗？核心布局保持稳定，细节可能随赛季微调。</q>
+        <q>需要注册或登录吗？现阶段以信息展示为主，不收集个人数据。</q>
+        <q>适合每天看吗？内容按比赛日更新，建议有选择地关注特定联赛。</q>
+    </div>
+
+    <!-- 链接嵌入句子 自然 -->
+    <div class="cta-soft">
+        <p>
+            若你希望定期浏览赛事竞猜信息，可将
+            <a href="https://china-guessscore.com">足球竞猜</a>
+            添加至书签。再次访问时，页面依旧保持你熟悉的呈现方式。
+        </p>
+    </div>
+
+    <!-- 附加说明 + 收藏视角 -->
+    <div style="background:#f0f7fa; border-radius:24px; padding:18px 22px; margin: 20px 0 10px;">
+        <div style="display: flex; gap: 12px; flex-wrap: wrap; align-items: flex-start;">
+            <span style="background:#1d8798; color:white; border-radius:50px; padding:4px 14px; font-size:0.8rem; font-weight:500;">持续关注</span>
+            <span style="color:#1a5e6b;">将页面加入收藏夹，或通过历史记录返回。每次访问均可获得一致的竞猜摘要。</span>
+        </div>
+        <p style="margin-top: 12px; font-size:0.9rem; color:#1b5e6b;">
+            <strong>再次访问提示：</strong>URL 不变，页面标题与结构长期稳定。适合作为赛前参考的固定起点。
+        </p>
+    </div>
+
+    <!-- footer -->
+    <div class="footer-note">
+        <span>© 足球竞猜 · 可信说明</span>
+        <span>不承诺预测结果 · 信息仅供参考</span>
+    </div>
+
+</div>
+</body>
+</html>
