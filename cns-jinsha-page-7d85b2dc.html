@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>再次阅读 · 金沙国际</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background-color: #f0f2f4;
+      color: #2c2f33;
+      line-height: 1.7;
+      padding: 2rem 1rem;
+    }
+
+    .page {
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    /* 主卡片，细边框 + 柔和阴影 */
+    .card {
+      background: #ffffff;
+      border: 1px solid #e4e7ec;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03), 0 1px 2px rgba(0,0,0,0.02);
+      border-radius: 20px;
+      padding: 2rem 2rem 2.2rem;
+      margin-bottom: 2rem;
+      transition: box-shadow 0.2s;
+    }
+
+    .card:hover {
+      box-shadow: 0 4px 16px rgba(0,0,0,0.04), 0 2px 4px rgba(0,0,0,0.02);
+    }
+
+    .card-note {
+      background: #fafbfc;
+      border-left: 4px solid #c0c7d4;
+      padding: 1.4rem 1.8rem;
+    }
+
+    /* 文章标题 */
+    .title-lg {
+      font-size: 2.1rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.3;
+      margin-bottom: 0.3rem;
+      color: #1e2227;
+    }
+
+    .subhead {
+      font-size: 1rem;
+      color: #6f767f;
+      margin-bottom: 1.6rem;
+      border-bottom: 1px solid #e9ecf0;
+      padding-bottom: 0.75rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+    }
+
+    .subhead span {
+      font-size: 0.9rem;
+    }
+
+    /* 正文段落 */
+    .body-text {
+      font-size: 1rem;
+      margin-top: 1.2rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .body-text p {
+      margin-bottom: 1rem;
+    }
+
+    .body-text p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* 引用块 — 克制、淡雅 */
+    .quote-tip {
+      background: #f5f7fa;
+      padding: 1.2rem 1.6rem;
+      border-radius: 14px;
+      margin: 1.6rem 0;
+      font-style: normal;
+      color: #3a4049;
+      border: 1px solid #dee2e8;
+      font-size: 0.95rem;
+    }
+
+    .quote-tip::before {
+      content: "✦ ";
+      color: #7e8a98;
+      font-size: 1rem;
+    }
+
+    .small-label {
+      display: inline-block;
+      background: #eaeef3;
+      padding: 0.1rem 0.7rem;
+      border-radius: 30px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: #4a525c;
+      letter-spacing: 0.3px;
+    }
+
+    .faq-item {
+      border-top: 1px solid #e4e8ed;
+      padding: 0.9rem 0 0.6rem;
+      margin-top: 0.2rem;
+    }
+
+    .faq-item:first-of-type {
+      border-top: none;
+      padding-top: 0.2rem;
+    }
+
+    .faq-q {
+      font-weight: 500;
+      font-size: 0.98rem;
+      margin-bottom: 0.1rem;
+    }
+
+    .faq-a {
+      color: #535a63;
+      font-size: 0.92rem;
+      margin-left: 0.4rem;
+    }
+
+    .visit-line {
+      margin-top: 1.8rem;
+      padding-top: 1.2rem;
+      border-top: 1px dashed #d0d5dd;
+      font-size: 0.95rem;
+      color: #2e343b;
+    }
+
+    .visit-line a {
+      color: #1f3c5e;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px solid #b7c1ce;
+      padding-bottom: 1px;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .visit-line a:hover {
+      border-bottom-color: #1f3c5e;
+      color: #0c1a2b;
+    }
+
+    /* 响应式 */
+    @media (max-width: 560px) {
+      body {
+        padding: 1rem 0.6rem;
+      }
+      .card {
+        padding: 1.5rem 1.2rem;
+        border-radius: 16px;
+      }
+      .title-lg {
+        font-size: 1.7rem;
+      }
+      .subhead {
+        flex-direction: column;
+        gap: 0.3rem;
+      }
+      .quote-tip {
+        padding: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- 第一个卡片：文章主体 -->
+  <div class="card">
+    <h1 class="title-lg">再读，而非浏览</h1>
+    <div class="subhead">
+      <span>一篇关于收藏与重访的短文</span>
+      <span>2025 · 四月</span>
+    </div>
+
+    <div class="body-text">
+      <p>
+        信息如潮，大多数页面只被瞥过一眼。但有些地方，你会在某个安静的下午想起它，然后再次打开。不是因为它推送了什么，而是因为那里有一种你愿意回去的氛围。对很多人来说，<a href="https://cns-jinsha.com">金沙国际</a>正是这样一个名字——它不喧哗，却始终在那里。
+      </p>
+      <p>
+        三年前我第一次注意到这个站点。那时界面比现在更朴素，内容密度也不高，但每一段都写得稳。后来我把它放进了书签栏的角落，偶尔点开，发现它一直在更新，只是从不催促你阅读。这种克制，反而让人愿意停留。
+      </p>
+    </div>
+
+    <div class="quote-tip">
+      真正好的网站不会追着你问“是否允许通知”，而是让你在某个时刻自己想起它。
+    </div>
+
+    <div class="body-text">
+      <p>
+        每次重访都像走进一间熟悉的房间：家具摆放有了细微变化，但气息没变。你会留意到以前忽略的段落，或者发现某个功能早已存在，只是自己从未使用。这大概就是持续关注的意义——不是盯紧每一条更新，而是允许自己以更松弛的频率回来。
+      </p>
+      <p>
+        我习惯在浏览器里保存一个名为“值得再读”的文件夹，里面混杂着几篇长文、两个工具站和这个叫<span class="small-label">金沙国际</span>的页面。它不属于任何分类，却每次都能给我一点新的东西：有时是一段关于日常的观察，有时是一组安静的图片，有时只是一句不起眼的引用。
+      </p>
+    </div>
+
+    <div class="visit-line">
+      如果你也曾无意中路过，或从别人那里听到过它，不妨把它加入收藏。下一次想要换换心情的时候，<a href="https://cns-jinsha.com">金沙国际</a>或许会给你不同于今日的感受。
+    </div>
+  </div>
+
+  <!-- 第二个卡片：FAQ 摘要 + 提示 -->
+  <div class="card card-note">
+    <h2 style="font-size: 1.25rem; font-weight: 500; margin-bottom: 0.6rem; color: #23272b;">几句零散的 FAQ</h2>
+
+    <div class="faq-item">
+      <div class="faq-q">这个站多久更新一次？</div>
+      <div class="faq-a">没有固定频率。有时连续几天都有新内容，有时隔一两周。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">需要注册或订阅吗？</div>
+      <div class="faq-a">不需要。直接打开就是全部内容，没有弹窗、没有邮件列表。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">以前的内容还能找到吗？</div>
+      <div class="faq-a">大部分都保留着，你可以往前翻。没有“限时可见”的套路。</div>
+    </div>
+
+    <div style="margin-top: 1.2rem; font-size: 0.9rem; color: #58606b; background: #eceff3; padding: 0.5rem 1rem; border-radius: 40px; display: inline-block;">
+      📎 提示：把链接拖到书签栏，下次就不会忘记。
+    </div>
+  </div>
+
+  <!-- 第三个卡片：简短访问句 -->
+  <div class="card" style="padding: 1.5rem 2rem;">
+    <p style="font-size: 1rem; color: #323840; margin: 0;">
+      如果你已经读到了这里，或许你也在寻找一个不打扰、有质感的地方。
+      <br>
+      <span style="display: inline-block; margin-top: 0.5rem;">→ <a href="https://cns-jinsha.com" style="color: #1f3c5e; text-decoration: none; border-bottom: 1px solid #b7c1ce; padding-bottom: 1px;">金沙国际</a> 仍在原来的地址。</span>
+    </p>
+  </div>
+
+  <!-- 极简 footer 仅作收束 -->
+  <div style="text-align: center; font-size: 0.75rem; color: #a4abb5; margin-top: 2.5rem; letter-spacing: 0.3px;">
+    <span>不定期重访 · 每一次都不太一样</span>
+  </div>
+
+</div>
+
+</body>
+</html>
