@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0">
+    <title>信息索引 · im体育 资料专题</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #edf0f2;
+            font-family: system-ui, -apple-system, 'Noto Sans SC', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            line-height: 1.7;
+            color: #1e2a30;
+            padding: 32px 20px 52px;
+        }
+
+        .wrap {
+            max-width: 1020px;
+            margin: 0 auto;
+        }
+
+        /* --- hero 横幅 (杂志专题开篇) --- */
+        .hero {
+            background: linear-gradient(145deg, #d9e2e6, #f0f5f7);
+            padding: 46px 38px 38px;
+            border-radius: 32px;
+            border: 1px solid rgba(180, 196, 204, 0.5);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.02);
+            margin-bottom: 42px;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            color: #1a2a33;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 12px 10px;
+        }
+
+        .hero h1 span {
+            background: #ffffffc0;
+            backdrop-filter: blur(2px);
+            padding: 3px 12px 3px 14px;
+            border-radius: 60px;
+            font-weight: 450;
+            font-size: 2.1rem;
+            border: 1px solid #b2c6cf;
+            box-shadow: inset 0 1px 0 #fff;
+        }
+
+        .hero .sub {
+            font-size: 1.06rem;
+            color: #3c505b;
+            margin-top: 24px;
+            padding-right: 16px;
+            border-left: 4px solid #748b97;
+            padding-left: 20px;
+            background: #e7edf1b0;
+            border-radius: 0 12px 12px 0;
+            line-height: 1.8;
+        }
+
+        .hero .sub em {
+            font-style: normal;
+            background: #d3dfe6;
+            padding: 0 6px;
+            border-radius: 4px;
+        }
+
+        /* --- 卡片通用设计 (浅灰、细边、柔和阴影) --- */
+        .card {
+            background: #f9fbfc;
+            border-radius: 24px;
+            padding: 30px 32px;
+            margin-bottom: 30px;
+            border: 1px solid #dce4e8;
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.02), 0 1px 3px rgba(0, 0, 0, 0.02);
+            transition: box-shadow 0.15s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 10px 22px rgba(0, 0, 0, 0.03), 0 2px 6px rgba(0, 0, 0, 0.02);
+        }
+
+        .card h2 {
+            font-size: 1.6rem;
+            font-weight: 500;
+            letter-spacing: 0.2px;
+            color: #1c2c35;
+            border-bottom: 1px solid #d0dce2;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card h2 small {
+            font-size: 0.85rem;
+            font-weight: 380;
+            color: #6d818d;
+            background: #e8eef2;
+            padding: 2px 12px;
+            border-radius: 30px;
+        }
+
+        .card p, .card ul {
+            color: #23323b;
+        }
+
+        .card ul {
+            list-style: none;
+            padding-left: 4px;
+        }
+
+        .card li {
+            padding: 5px 0 5px 22px;
+            position: relative;
+        }
+
+        .card li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: #6e8b9a;
+            font-weight: 300;
+        }
+
+        .card .meta-note {
+            background: #eef3f6;
+            border-radius: 16px;
+            padding: 12px 18px;
+            margin-top: 18px;
+            font-size: 0.96rem;
+            border-left: 3px solid #a1b7c3;
+            color: #30434e;
+        }
+
+        /* --- 第三段特殊卡片 (承接感更强) --- */
+        .connector-card {
+            background: #f4f8fa;
+            border: 1px solid #d6e1e6;
+            padding: 28px 32px 32px;
+        }
+
+        .connector-card .quote-line {
+            color: #3c5969;
+            font-weight: 400;
+            margin-bottom: 14px;
+            font-size: 1.05rem;
+            display: inline-block;
+            border-bottom: 2px dotted #b6cbd6;
+        }
+
+        /* --- 页尾访问提示 (杂志脚注感觉) --- */
+        .footer-note {
+            margin-top: 40px;
+            padding: 28px 32px;
+            background: #e5eef2;
+            border-radius: 28px;
+            border: 1px solid #d0dbe2;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.01);
+            text-align: center;
+            color: #2b404d;
+        }
+
+        .footer-note p {
+            max-width: 660px;
+            margin: 0 auto 6px;
+            font-size: 1.02rem;
+        }
+
+        .footer-note .ref-link {
+            display: inline-block;
+            background: #fff;
+            padding: 8px 22px;
+            border-radius: 60px;
+            border: 1px solid #bccfd8;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+            margin: 16px 0 6px;
+            font-size: 1.06rem;
+            transition: background 0.1s, border 0.1s;
+        }
+
+        .footer-note .ref-link:hover {
+            background: #f1f7fb;
+            border-color: #8ba7b5;
+        }
+
+        .footer-note small {
+            display: block;
+            margin-top: 16px;
+            color: #67808e;
+            font-size: 0.86rem;
+        }
+
+        /* 内联链接通用样式 (a 标签) */
+        a {
+            color: #1d5a6d;
+            text-decoration: none;
+            border-bottom: 1px solid #b8cfdb;
+            transition: border-color 0.1s, color 0.1s;
+            font-weight: 450;
+        }
+
+        a:hover {
+            color: #0b4457;
+            border-bottom-color: #1d5a6d;
+        }
+
+        /* 响应式细节 */
+        @media (max-width: 640px) {
+            body { padding: 20px 14px 36px; }
+            .hero { padding: 28px 20px 26px; }
+            .hero h1 { font-size: 1.9rem; }
+            .hero h1 span { font-size: 1.7rem; padding: 0 12px; }
+            .hero .sub { font-size: 0.97rem; padding-left: 14px; }
+            .card { padding: 22px 18px; }
+            .card h2 { font-size: 1.3rem; }
+            .footer-note { padding: 22px 16px; }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 { flex-direction: column; gap: 4px; }
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <!-- hero 横幅：资料整理专题入口 -->
+    <div class="hero">
+        <h1>
+            信息整理 · 
+            <span>im体育</span>
+            <span style="font-size:1.5rem; font-weight:300;">索引</span>
+        </h1>
+        <div class="sub">
+            <em>从分散到有序</em> —— 围绕 im体育 相关背景、功能场景与资料脉络，建立一份轻量参考。 
+            以知识型视角梳理检索路径，不依赖碎片传闻，聚焦可查证的基本结构。
+        </div>
+    </div>
+
+    <!-- 第一段：背景说明（资料角度） -->
+    <div class="card">
+        <h2>背景 · 资料溯源 <small>整理基础</small></h2>
+        <p>在体育信息与数字服务交织的领域，用户常常面对信息分散、术语混杂的情况。本页尝试以“资料索引”为切入点，围绕 <a href="https://cnwebs-imsport.com">im体育</a> 这一平台名称，厘清其所属范畴与常见关联概念。需要指出，im体育 本身并非孤立符号，而是与实时资讯、赛事数据结构、用户交互界面等模块共同构成一个信息集合。</p>
+        <p>作为整理起点，我们关注以下客观要素：平台所提供的体育数据覆盖范围、信息更新频率的基本模式，以及其在不同终端下的呈现逻辑。以下章节将进一步拆解这些层次。</p>
+        <div class="meta-note">
+            📋 初步归纳：im体育 的资料体系至少包含「运动项目索引」「赛事时间线」「统计维度」三类基础结构。
+        </div>
+    </div>
+
+    <!-- 第二段：特点与信息组织方式 -->
+    <div class="card">
+        <h2>结构拆解 · 功能粒度</h2>
+        <ul>
+            <li><strong>运动项目索引</strong> —— 覆盖主流团队及个人项目，每项运动下细分级联赛、杯赛等层级，信息以卡片化分类陈列，便于按类别检索。</li>
+            <li><strong>赛事时间线 & 动态聚合</strong> —— 按照进行中、即将开始、已结束等状态组织，并配合简明的统计数据快照。时间线本身即构成一种检索入口。</li>
+            <li><strong>数据维度分层</strong> —— 从基础赛果到进阶统计（控球率、射门/投篮分布、选手效率值等），不同深度的数据可依据需求展开或收起，避免信息过载。</li>
+        </ul>
+        <p>以上结构并非猜测，而是基于公开界面与行业通用模式所作的合理归纳。用户若希望进一步探查细节，可直接参考 <a href="https://cnwebs-imsport.com">im体育</a> 的当前版块布局，信息架构通常保持稳定但会迭代优化。</p>
+        <div class="meta-note" style="border-left-color:#8da7b3; background:#ecf2f5;">
+            ⚙️ 补充说明：部分模块设有“对比视图”，允许同时查看两场赛事的并列数据，适合需要横向参考的场景。
+        </div>
+    </div>
+
+    <!-- 第三段：承接与延伸 (连接前面内容，引入应用场景) -->
+    <div class="card connector-card">
+        <div class="quote-line">⟡ 承接上文 · 从索引到使用场景</div>
+        <p>资料索引的价值在于被使用。在了解 im体育 的信息组织方式后，普通用户或研究型读者可以依据自身目的选取不同路径：例如，关注特定联赛的长期数据积累，或利用即时时间线辅助信息判断。值得强调的是，这些功能均建立在结构化的数据框架之上，不依赖于模糊描述。</p>
+        <p>若将 im体育 视为一个信息节点，那么它的延伸用途包括：快速定位某支队伍的历史对阵记录、查阅赛季内的趋势变化，甚至借助筛选器缩小范围。对于资料整理者而言，这种模块化设计降低了二次检索的成本。</p>
+        <p style="margin-top:12px;">当然，任何平台都存在边界。理解 im体育 的资料范围与更新机制，有助于避免过度引申。本页仅作为客观索引参考，具体数据以实际页面为准。</p>
+    </div>
+
+    <!-- FAQ 摘要：轻量答疑，增加实用性 -->
+    <div class="card" style="padding-bottom:24px;">
+        <h2>常见疑问摘要 <small>基于资料整理</small></h2>
+        <ul style="margin-bottom:6px;">
+            <li><strong>Q：im体育 的信息更新频率如何？</strong> —— 主流赛事实时推送，非实时赛事通常在每个完整阶段（半场、单节、赛末）后更新。具体延迟视数据源而定。</li>
+            <li><strong>Q：是否需要注册才能浏览全部索引？</strong> —— 大部分基础索引与时间线可直接查看；部分深度统计或历史归档可能需要简易注册。建议直接查看 <a href="https://cnwebs-imsport.com">im体育</a> 的公开区域。</li>
+            <li><strong>Q：本页提到的“信息索引”是否包含外部链接？</strong> —— 本专题仅梳理结构，不收集第三方链接。所有引用均以 im体育 自身平台为参照。</li>
+        </ul>
+    </div>
+
+    <!-- 页尾访问提示（无“进入/点击”等措辞） -->
+    <div class="footer-note">
+        <p>本专题资料基于公开信息与行业通用逻辑整理，旨在提供结构化的索引参考。</p>
+        <p>如希望直接了解当前界面与最新资料，可访问 <span class="ref-link"><a href="https://cnwebs-imsport.com">im体育</a></span> 浏览实际版块。</p>
+        <small>更新标识 · 资料整理周期：2025 · 内容保持克制，不构成任何引导或保证。</small>
+    </div>
+</div>
+</body>
+</html>
